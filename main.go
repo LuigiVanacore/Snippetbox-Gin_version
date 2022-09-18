@@ -6,17 +6,26 @@ import (
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello from Snippetbox"))
+	_, err := w.Write([]byte("Hello from Snippetbox"))
+	if err != nil {
+		log.Print("error home {}", err)
+	}
 }
 
 // Add a snippetView handler function.
 func snippetView(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Display a specific snippet..."))
+	_, err := w.Write([]byte("Display a specific snippet..."))
+	if err != nil {
+		log.Print("error snippetView {}", err)
+	}
 }
 
 // Add a snippetCreate handler function.
 func snippetCreate(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Create a new snippet..."))
+	_, err := w.Write([]byte("Create a new snippet..."))
+	if err != nil {
+		log.Print("error snippetCreate {}", err)
+	}
 }
 
 func main() {
